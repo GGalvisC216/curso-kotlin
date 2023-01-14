@@ -2,29 +2,42 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val lotteryNumbers = listOf(11,22,7,66,32,43)
+    // Immutable
+    val superHeroesAges = mapOf(
+        "Ironman" to 35,
+        "Spider-man" to 23,
+        "Captain America" to 99
+    )
+    println(superHeroesAges)
 
-    val sortedNumbers = lotteryNumbers.sorted()
-    println(sortedNumbers)
+    // Mutable
+    val mutableSuperHeroesAges = mutableMapOf(
+        "Ironman" to 35,
+        "Spider-man" to 23,
+        "Captain America" to 99
+    )
+    println(mutableSuperHeroesAges)
 
-    val descSortedNumbers = lotteryNumbers.sortedDescending()
-    println(descSortedNumbers)
+    // Using put method
+    mutableSuperHeroesAges.put("Wolverine",45)
+    println(mutableSuperHeroesAges)
 
-    val orderedByMultiples = lotteryNumbers.sortedBy { number -> number < 30 }
-    println(orderedByMultiples)
+    // Using assignment
+    mutableSuperHeroesAges["Storm"] = 30
+    println(mutableSuperHeroesAges)
 
-    val randomNumbers = lotteryNumbers.shuffled()
-    println(randomNumbers)
+    val ironmanAge = superHeroesAges["Ironman"]
+    //val ironmanAge = mutableSuperHeroesAges["Ironman"]
+    println(ironmanAge)
 
-    val reverseNumbers = lotteryNumbers.reversed()
-    println(reverseNumbers)
+    mutableSuperHeroesAges.remove("Wolverine")
+    println(mutableSuperHeroesAges)
 
-    val messageNumbers = lotteryNumbers.map { number -> "Your lottery number is $number" }
-    println(messageNumbers)
+    mutableSuperHeroesAges.replace("Storm", 27)
+    println(mutableSuperHeroesAges)
 
-    val filteredNumbers = lotteryNumbers.filter { number -> number > 30 }
-    println(filteredNumbers)
-
+    println(mutableSuperHeroesAges.keys)
+    println(mutableSuperHeroesAges.values)
 }
 
 fun variables() {
@@ -254,4 +267,29 @@ fun lists() {
     val array = arrayOf(1,2,3,4)
     println("Array $array")
     println("Array as List ${array.asList()}")
+}
+
+fun sorting() {
+    val lotteryNumbers = listOf(11,22,7,66,32,43)
+
+    val sortedNumbers = lotteryNumbers.sorted()
+    println(sortedNumbers)
+
+    val descSortedNumbers = lotteryNumbers.sortedDescending()
+    println(descSortedNumbers)
+
+    val orderedByMultiples = lotteryNumbers.sortedBy { number -> number < 30 }
+    println(orderedByMultiples)
+
+    val randomNumbers = lotteryNumbers.shuffled()
+    println(randomNumbers)
+
+    val reverseNumbers = lotteryNumbers.reversed()
+    println(reverseNumbers)
+
+    val messageNumbers = lotteryNumbers.map { number -> "Your lottery number is $number" }
+    println(messageNumbers)
+
+    val filteredNumbers = lotteryNumbers.filter { number -> number > 30 }
+    println(filteredNumbers)
 }
