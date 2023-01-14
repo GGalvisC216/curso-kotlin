@@ -2,36 +2,17 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val color = "Red"
+    var counter = 10
 
-    when (color) {
-        "Yellow" -> println("Color is yellow, Sun")
-        "Red","Ruby" -> {
-            println("Color is red")
-            println("Ruby")
-        }
-        else -> println("Error: Color not found")
+    while (counter > 0) {
+        println("The value is ${counter--}")
     }
 
-    val code = 200
-
-    when (code) {
-        in 200..299 -> println("OK")
-        in 400..499 -> println("Error")
-        in 500..599 -> println("Server Error")
-        else -> println("Code not found")
-    }
-
-    val shoeSize = 40
-
-    val message = when(shoeSize) {
-        40,41 -> "We have shoes of this size"
-        42,43 -> "We hardly have shoes of this size"
-        44,45 -> "Sorry, We ran out of shoes"
-        else -> "We don't have this size of shoes"
-    }
-
-    println(message)
+    do {
+        println("Generating random number")
+        val randomNumber = (0..100).random()
+        println("The number generated is $randomNumber")
+    } while (randomNumber > 50)
 }
 
 fun variables() {
@@ -128,6 +109,39 @@ fun conditionalIf() {
         "Name is empty"
     }else {
         "You have a short name"
+    }
+
+    println(message)
+}
+
+fun conditionalWhen() {
+    val color = "Red"
+
+    when (color) {
+        "Yellow" -> println("Color is yellow, Sun")
+        "Red","Ruby" -> {
+            println("Color is red")
+            println("Ruby")
+        }
+        else -> println("Error: Color not found")
+    }
+
+    val code = 200
+
+    when (code) {
+        in 200..299 -> println("OK")
+        in 400..499 -> println("Error")
+        in 500..599 -> println("Server Error")
+        else -> println("Code not found")
+    }
+
+    val shoeSize = 40
+
+    val message = when(shoeSize) {
+        40,41 -> "We have shoes of this size"
+        42,43 -> "We hardly have shoes of this size"
+        44,45 -> "Sorry, We ran out of shoes"
+        else -> "We don't have this size of shoes"
     }
 
     println(message)
