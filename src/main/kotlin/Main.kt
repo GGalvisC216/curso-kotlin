@@ -2,13 +2,7 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val mobiles = mutableListOf("Google Pixel 4a", "Samsung Galaxy S22", "Xiaomi mi a3")
-        .run {
-            removeIf { mobile -> mobile.contains("Google") }
-            this
-        }
-
-    println(mobiles)
+    scopeFunctionsRunAndApply()
 
 }
 
@@ -443,4 +437,34 @@ fun scopeFunctionsWith() {
         "$this with $len characters and $randomPhrase"
     }
     println(result)
+}
+
+fun scopeFunctionsRunAndApply() {
+    val mobiles = mutableListOf("Motorola G3", "Google Pixel 4a", "Samsung Galaxy S22", "Xiaomi mi a3")
+        .run {
+            removeIf { mobile -> mobile.contains("Google") }
+            this
+        }
+
+    println(mobiles)
+
+    mobiles.apply {
+        removeIf { mobile -> mobile.contains("Motorola") }
+    }
+
+    println(mobiles)
+
+    val colors: MutableList<String>? = null
+    colors?.apply {
+        println("Colors are $this")
+        println("There are $size colors")
+    }
+
+    val colors2: MutableList<String?>? = mutableListOf("Red", "Blue", "Yellow", null)
+    colors2?.apply {
+        println("Colors are $this")
+        println("There are $size colors")
+        removeIf { color -> color == null || color.length > 3 }
+    }
+    println(colors2)
 }
