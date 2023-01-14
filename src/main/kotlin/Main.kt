@@ -3,41 +3,25 @@ const val PI = 3.1416
 
 fun main(args: Array<String>) {
     // Immutable
-    val superHeroesAges = mapOf(
-        "Ironman" to 35,
-        "Spider-man" to 23,
-        "Captain America" to 99
-    )
-    println(superHeroesAges)
+    val repeatedVowels = setOf("a","e","i","o","u","i","o","u")
+    println(repeatedVowels)
 
     // Mutable
-    val mutableSuperHeroesAges = mutableMapOf(
-        "Ironman" to 35,
-        "Spider-man" to 23,
-        "Captain America" to 99
-    )
-    println(mutableSuperHeroesAges)
+    val favoriteNumbers = mutableSetOf(1,2,3,4,5,5,4,3,2,1)
+    println(favoriteNumbers)
 
-    // Using put method
-    mutableSuperHeroesAges.put("Wolverine",45)
-    println(mutableSuperHeroesAges)
+    favoriteNumbers.add(5)
+    println(favoriteNumbers)
 
-    // Using assignment
-    mutableSuperHeroesAges["Storm"] = 30
-    println(mutableSuperHeroesAges)
+    favoriteNumbers.add(10)
+    favoriteNumbers.add(10)
+    println(favoriteNumbers)
 
-    val ironmanAge = superHeroesAges["Ironman"]
-    //val ironmanAge = mutableSuperHeroesAges["Ironman"]
-    println(ironmanAge)
+    favoriteNumbers.remove(5)
+    println(favoriteNumbers)
 
-    mutableSuperHeroesAges.remove("Wolverine")
-    println(mutableSuperHeroesAges)
-
-    mutableSuperHeroesAges.replace("Storm", 27)
-    println(mutableSuperHeroesAges)
-
-    println(mutableSuperHeroesAges.keys)
-    println(mutableSuperHeroesAges.values)
+    val setValue = favoriteNumbers.firstOrNull { number -> number > 11}
+    println(setValue)
 }
 
 fun variables() {
@@ -292,4 +276,43 @@ fun sorting() {
 
     val filteredNumbers = lotteryNumbers.filter { number -> number > 30 }
     println(filteredNumbers)
+}
+
+fun maps() {
+    // Immutable
+    val superHeroesAges = mapOf(
+        "Ironman" to 35,
+        "Spider-man" to 23,
+        "Captain America" to 99
+    )
+    println(superHeroesAges)
+
+    // Mutable
+    val mutableSuperHeroesAges = mutableMapOf(
+        "Ironman" to 35,
+        "Spider-man" to 23,
+        "Captain America" to 99
+    )
+    println(mutableSuperHeroesAges)
+
+    // Using put method
+    mutableSuperHeroesAges.put("Wolverine",45)
+    println(mutableSuperHeroesAges)
+
+    // Using assignment
+    mutableSuperHeroesAges["Storm"] = 30
+    println(mutableSuperHeroesAges)
+
+    val ironmanAge = superHeroesAges["Ironman"]
+    //val ironmanAge = mutableSuperHeroesAges["Ironman"]
+    println(ironmanAge)
+
+    mutableSuperHeroesAges.remove("Wolverine")
+    println(mutableSuperHeroesAges)
+
+    mutableSuperHeroesAges.replace("Storm", 27)
+    println(mutableSuperHeroesAges)
+
+    println(mutableSuperHeroesAges.keys)
+    println(mutableSuperHeroesAges.values)
 }
