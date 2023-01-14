@@ -2,17 +2,17 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    var counter = 10
+    val fruitList = listOf("Apple", "Pear", "Peach", "Raspberry")
 
-    while (counter > 0) {
-        println("The value is ${counter--}")
-    }
+    for (fruit in fruitList) println("The fruit of the day is $fruit")
 
-    do {
-        println("Generating random number")
-        val randomNumber = (0..100).random()
-        println("The number generated is $randomNumber")
-    } while (randomNumber > 50)
+    fruitList.forEach { fruit -> println("The fruit is $fruit") }
+
+    val fruitCharacters = fruitList.map { fruit -> fruit.length }
+    println(fruitCharacters)
+
+    val filteredList = fruitCharacters.filter { fruitLength -> fruitLength > 5 }
+    println(filteredList)
 }
 
 fun variables() {
@@ -145,4 +145,18 @@ fun conditionalWhen() {
     }
 
     println(message)
+}
+
+fun whileLoop() {
+    var counter = 10
+
+    while (counter > 0) {
+        println("The value is ${counter--}")
+    }
+
+    do {
+        println("Generating random number")
+        val randomNumber = (0..100).random()
+        println("The number generated is $randomNumber")
+    } while (randomNumber > 50)
 }
