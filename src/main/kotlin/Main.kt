@@ -2,24 +2,19 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    var name: String? = null
-    name?.let {
-        value -> println("The name is not null, It's $value")
+    val colors = listOf("Blue", "Red", "Yellow")
+    with(colors) {
+        println("The colors are $this")
+        println("This list has $size colors")
     }
 
-    name = "Gustavo"
-    name?.let {
-        value -> println("The name is not null, It's $value")
+    val phrase = "This is a test"
+    val result = with(phrase) {
+        val len = length
+        val randomPhrase = "a random Phrase"
+        "$this with $len characters and $randomPhrase"
     }
-
-    var lambda: (String) -> Unit = { value -> println("The name is not null, It's $value") }
-
-    var secondName: String? = null
-    secondName?.let(lambda)
-
-    secondName = "Carlos"
-    secondName?.let(lambda)
-
+    println(result)
 }
 
 fun variables() {
@@ -417,4 +412,24 @@ fun highOrderFunctions() {
     val resultInceptionFunction: () -> String = inceptionFunction("returning Function")
     val resultLambda: String = resultInceptionFunction()
     println(resultLambda)
+}
+
+fun scopeFunctions() {
+    var name: String? = null
+    name?.let {
+            value -> println("The name is not null, It's $value")
+    }
+
+    name = "Gustavo"
+    name?.let {
+            value -> println("The name is not null, It's $value")
+    }
+
+    var lambda: (String) -> Unit = { value -> println("The name is not null, It's $value") }
+
+    var secondName: String? = null
+    secondName?.let(lambda)
+
+    secondName = "Carlos"
+    secondName?.let(lambda)
 }
