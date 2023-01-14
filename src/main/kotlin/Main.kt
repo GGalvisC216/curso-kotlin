@@ -2,19 +2,15 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val lambdaWithIt: (String) -> Int = { it.length }
-    val lambdaWithOwnValue: (String) -> Int = { value -> value.length }
+    val resultSuperFunction = superFunction(initialValue = "Random Phrase", block = { it.length })
+    println(resultSuperFunction)
 
-    println(lambdaWithIt)
+    val anotherWayToCallSuperFunction = superFunction(initialValue = "Hello") { it.length }
+    println(anotherWayToCallSuperFunction)
 
-    val resultLambdaWithIt: Int = lambdaWithIt("Lambda With It")
-    val resultLambdaWithOwnValue = lambdaWithOwnValue("Lambda String")
-    println(resultLambdaWithIt)
-    println(resultLambdaWithOwnValue)
-
-    val greetings = listOf("Hello", "Hola", "Ciao")
-    val lengthOfGreetings = greetings.map(lambdaWithIt)
-    println(lengthOfGreetings)
+    val resultInceptionFunction: () -> String = inceptionFunction("returning Function")
+    val resultLambda: String = resultInceptionFunction()
+    println(resultLambda)
 }
 
 fun variables() {
@@ -376,4 +372,28 @@ fun params() {
     printName("John", "","Smith")
     printName(firstname = "John", lastname = "Smith")
     printName(firstname = "Bob", secondName = "Rob", lastname = "Scott")
+}
+
+fun lambdas() {
+    val lambdaWithIt: (String) -> Int = { it.length }
+    val lambdaWithOwnValue: (String) -> Int = { value -> value.length }
+
+    println(lambdaWithIt)
+
+    val resultLambdaWithIt: Int = lambdaWithIt("Lambda With It")
+    val resultLambdaWithOwnValue = lambdaWithOwnValue("Lambda String")
+    println(resultLambdaWithIt)
+    println(resultLambdaWithOwnValue)
+
+    val greetings = listOf("Hello", "Hola", "Ciao")
+    val lengthOfGreetings = greetings.map(lambdaWithIt)
+    println(lengthOfGreetings)
+}
+
+fun superFunction(initialValue: String, block: (String) -> Int): Int {
+    return block(initialValue) + 10
+}
+
+fun inceptionFunction(name: String): () -> String {
+    return { "Hello from lambda $name" }
 }
