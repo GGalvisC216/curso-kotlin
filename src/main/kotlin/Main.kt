@@ -2,19 +2,14 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val colors = listOf("Blue", "Red", "Yellow")
-    with(colors) {
-        println("The colors are $this")
-        println("This list has $size colors")
-    }
+    val mobiles = mutableListOf("Google Pixel 4a", "Samsung Galaxy S22", "Xiaomi mi a3")
+        .run {
+            removeIf { mobile -> mobile.contains("Google") }
+            this
+        }
 
-    val phrase = "This is a test"
-    val result = with(phrase) {
-        val len = length
-        val randomPhrase = "a random Phrase"
-        "$this with $len characters and $randomPhrase"
-    }
-    println(result)
+    println(mobiles)
+
 }
 
 fun variables() {
@@ -414,7 +409,7 @@ fun highOrderFunctions() {
     println(resultLambda)
 }
 
-fun scopeFunctions() {
+fun scopeFunctionsLet() {
     var name: String? = null
     name?.let {
             value -> println("The name is not null, It's $value")
@@ -432,4 +427,20 @@ fun scopeFunctions() {
 
     secondName = "Carlos"
     secondName?.let(lambda)
+}
+
+fun scopeFunctionsWith() {
+    val colors = listOf("Blue", "Red", "Yellow")
+    with(colors) {
+        println("The colors are $this")
+        println("This list has $size colors")
+    }
+
+    val phrase = "This is a test"
+    val result = with(phrase) {
+        val len = length
+        val randomPhrase = "a random Phrase"
+        "$this with $len characters and $randomPhrase"
+    }
+    println(result)
 }
