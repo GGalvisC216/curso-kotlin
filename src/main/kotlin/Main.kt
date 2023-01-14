@@ -2,26 +2,18 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    // Immutable
-    val repeatedVowels = setOf("a","e","i","o","u","i","o","u")
-    println(repeatedVowels)
+    val randomPhrase = "Learning Kotlin in Platzi"
 
-    // Mutable
-    val favoriteNumbers = mutableSetOf(1,2,3,4,5,5,4,3,2,1)
-    println(favoriteNumbers)
+    val result = randomCase(randomPhrase)
+    println(result)
 
-    favoriteNumbers.add(5)
-    println(favoriteNumbers)
+    println(randomCase(randomPhrase))
 
-    favoriteNumbers.add(10)
-    favoriteNumbers.add(10)
-    println(favoriteNumbers)
+    printPhrase("This is a test")
+    printPhrase(randomCase("This is a test"))
 
-    favoriteNumbers.remove(5)
-    println(favoriteNumbers)
-
-    val setValue = favoriteNumbers.firstOrNull { number -> number > 11}
-    println(setValue)
+    val anotherPhrase = "Testing extension functions"
+    println(anotherPhrase.addLengthToPhrase())
 }
 
 fun variables() {
@@ -315,4 +307,47 @@ fun maps() {
 
     println(mutableSuperHeroesAges.keys)
     println(mutableSuperHeroesAges.values)
+}
+
+fun sets () {
+    // Immutable
+    val repeatedVowels = setOf("a","e","i","o","u","i","o","u")
+    println(repeatedVowels)
+
+    // Mutable
+    val favoriteNumbers = mutableSetOf(1,2,3,4,5,5,4,3,2,1)
+    println(favoriteNumbers)
+
+    favoriteNumbers.add(5)
+    println(favoriteNumbers)
+
+    favoriteNumbers.add(10)
+    favoriteNumbers.add(10)
+    println(favoriteNumbers)
+
+    favoriteNumbers.remove(5)
+    println(favoriteNumbers)
+
+    val setValue = favoriteNumbers.firstOrNull { number -> number > 11}
+    println(setValue)
+}
+
+fun randomCase(phrase: String): String {
+    val range = 0..99
+    val randomNumber = range.random()
+
+    return if (randomNumber.rem(2) == 0) {
+        phrase.uppercase()
+    } else {
+        phrase.lowercase()
+    }
+}
+
+fun printPhrase(phrase: String): Unit {
+    println("Your phrase $phrase")
+}
+
+// Extension function
+fun String.addLengthToPhrase(): String {
+    return "$this with ${this.length} characters"
 }
