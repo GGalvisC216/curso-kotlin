@@ -2,9 +2,19 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    printName("John", "","Smith")
-    printName(firstname = "John", lastname = "Smith")
-    printName(firstname = "Bob", secondName = "Rob", lastname = "Scott")
+    val lambdaWithIt: (String) -> Int = { it.length }
+    val lambdaWithOwnValue: (String) -> Int = { value -> value.length }
+
+    println(lambdaWithIt)
+
+    val resultLambdaWithIt: Int = lambdaWithIt("Lambda With It")
+    val resultLambdaWithOwnValue = lambdaWithOwnValue("Lambda String")
+    println(resultLambdaWithIt)
+    println(resultLambdaWithOwnValue)
+
+    val greetings = listOf("Hello", "Hola", "Ciao")
+    val lengthOfGreetings = greetings.map(lambdaWithIt)
+    println(lengthOfGreetings)
 }
 
 fun variables() {
@@ -360,4 +370,10 @@ fun function() {
 
 fun printName(firstname: String, secondName: String = "", lastname: String) {
     println("My full name is $firstname $secondName $lastname")
+}
+
+fun params() {
+    printName("John", "","Smith")
+    printName(firstname = "John", lastname = "Smith")
+    printName(firstname = "Bob", secondName = "Rob", lastname = "Scott")
 }
