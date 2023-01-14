@@ -44,4 +44,40 @@ fun main(args: Array<String>) {
 
     println(fullname)
 
+    val a = 5
+    val b = 3
+
+    //var c = a.plus(b)
+    var c = a + b
+
+    //c = a.minus(b)
+    c = a - b
+
+    //c = a.times(b)
+    c = a * b
+
+    //c = a.div(b)
+    c = a / b
+
+    //c = a.rem(b)
+    c = a % b
+
+    //c = c.inc()
+    c++
+
+    //c = c.dec()
+    c--
+
+    //var d = a.compareTo(b) < 0
+    var d = a < b
+
+    //d = a.compareTo(b) == 0
+    //d = a.equals(b)
+    d = a == b
+
+    //d = a.compareTo(b) > 0
+    d = a > b
+
+    //d = !a.equals(b)
+    d = a != b
 }
