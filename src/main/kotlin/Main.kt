@@ -2,9 +2,40 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    var name: String? = null
-    val characters: Int = name?.length ?: 0
-    println(characters)
+    // Immutable
+    val nameList = listOf("John", "Anna", "Bob")
+    println(nameList)
+
+    // Mutable
+    val emptyList = mutableListOf<String>()
+    println(emptyList)
+
+    emptyList.add("First Element")
+    println(emptyList)
+
+    val valueUsingGet = emptyList.get(0)
+    println(valueUsingGet)
+
+    val valueUsingOperator = emptyList[0]
+    println(valueUsingOperator)
+
+    //val firstValue = nameList.firstOrNull()
+    val firstValue = nameList.first()
+    println(firstValue)
+
+    emptyList.removeAt(0)
+    println(emptyList)
+
+    emptyList.add("New Element")
+    println(emptyList)
+    emptyList.removeIf { element -> element.length > 5 }
+    println(emptyList)
+
+    // Arrays
+    val array = arrayOf(1,2,3,4)
+    println("Array $array")
+    println("Array as List ${array.asList()}")
+
 }
 
 fun variables() {
@@ -192,4 +223,10 @@ fun exceptions() {
     val secondValue = 0
     val result: Int = try { firstValue / secondValue } catch (exception: Exception) { 0 }
     println("Result: $result")
+}
+
+fun elvisOperator() {
+    var name: String? = null
+    val characters: Int = name?.length ?: 0
+    println(characters)
 }
