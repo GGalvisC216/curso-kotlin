@@ -2,6 +2,22 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
+    val name = "Andres"
+
+    if (name.isNotEmpty()) println("The length of the name is ${name.length}") else println("Error: Name is empty")
+
+    val message: String = if (name.length > 4) {
+        "Your name is long!"
+    } else if (name.isEmpty()) {
+        "Name is empty"
+    }else {
+        "You have a short name"
+    }
+
+    println(message)
+}
+
+fun variables() {
     println("Hello World!")
 
     // Variable - Write and read
@@ -43,7 +59,9 @@ fun main(args: Array<String>) {
     val fullname = "$firstname $lastname"
 
     println(fullname)
+}
 
+fun operations() {
     val a = 5
     val b = 3
 
