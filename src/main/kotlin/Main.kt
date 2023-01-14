@@ -2,32 +2,9 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-
-    var name : String? = null
-
-    println(name?.length)
-
-    try {
-        name!!.length
-    } catch (exception: NullPointerException) {
-        println("An error has ocurred")
-    } finally {
-        println("Finally an error has ocurred... Finishing app")
-    }
-
-    try {
-        throw NullPointerException("Null reference")
-    } catch (exception: NullPointerException) {
-        println("Error: ${exception.message}")
-    } finally {
-        println("Closing app")
-    }
-
-    val firstValue = 5
-    val secondValue = 0
-    val result: Int = try { firstValue / secondValue } catch (exception: Exception) { 0 }
-    println("Result: $result")
-
+    var name: String? = null
+    val characters: Int = name?.length ?: 0
+    println(characters)
 }
 
 fun variables() {
@@ -188,4 +165,31 @@ fun forLoop() {
 
     val filteredList = fruitCharacters.filter { fruitLength -> fruitLength > 5 }
     println(filteredList)
+}
+
+fun exceptions() {
+    var name : String? = null
+
+    println(name?.length)
+
+    try {
+        name!!.length
+    } catch (exception: NullPointerException) {
+        println("An error has ocurred")
+    } finally {
+        println("Finally an error has ocurred... Finishing app")
+    }
+
+    try {
+        throw NullPointerException("Null reference")
+    } catch (exception: NullPointerException) {
+        println("Error: ${exception.message}")
+    } finally {
+        println("Closing app")
+    }
+
+    val firstValue = 5
+    val secondValue = 0
+    val result: Int = try { firstValue / secondValue } catch (exception: Exception) { 0 }
+    println("Result: $result")
 }
