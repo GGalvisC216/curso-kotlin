@@ -2,18 +2,9 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val randomPhrase = "Learning Kotlin in Platzi"
-
-    val result = randomCase(randomPhrase)
-    println(result)
-
-    println(randomCase(randomPhrase))
-
-    printPhrase("This is a test")
-    printPhrase(randomCase("This is a test"))
-
-    val anotherPhrase = "Testing extension functions"
-    println(anotherPhrase.addLengthToPhrase())
+    printName("John", "","Smith")
+    printName(firstname = "John", lastname = "Smith")
+    printName(firstname = "Bob", secondName = "Rob", lastname = "Scott")
 }
 
 fun variables() {
@@ -350,4 +341,23 @@ fun printPhrase(phrase: String): Unit {
 // Extension function
 fun String.addLengthToPhrase(): String {
     return "$this with ${this.length} characters"
+}
+
+fun function() {
+    val randomPhrase = "Learning Kotlin in Platzi"
+
+    val result = randomCase(randomPhrase)
+    println(result)
+
+    println(randomCase(randomPhrase))
+
+    printPhrase("This is a test")
+    printPhrase(randomCase("This is a test"))
+
+    val anotherPhrase = "Testing extension functions"
+    println(anotherPhrase.addLengthToPhrase())
+}
+
+fun printName(firstname: String, secondName: String = "", lastname: String) {
+    println("My full name is $firstname $secondName $lastname")
 }
