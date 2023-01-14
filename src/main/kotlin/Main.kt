@@ -2,17 +2,32 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val fruitList = listOf("Apple", "Pear", "Peach", "Raspberry")
 
-    for (fruit in fruitList) println("The fruit of the day is $fruit")
+    var name : String? = null
 
-    fruitList.forEach { fruit -> println("The fruit is $fruit") }
+    println(name?.length)
 
-    val fruitCharacters = fruitList.map { fruit -> fruit.length }
-    println(fruitCharacters)
+    try {
+        name!!.length
+    } catch (exception: NullPointerException) {
+        println("An error has ocurred")
+    } finally {
+        println("Finally an error has ocurred... Finishing app")
+    }
 
-    val filteredList = fruitCharacters.filter { fruitLength -> fruitLength > 5 }
-    println(filteredList)
+    try {
+        throw NullPointerException("Null reference")
+    } catch (exception: NullPointerException) {
+        println("Error: ${exception.message}")
+    } finally {
+        println("Closing app")
+    }
+
+    val firstValue = 5
+    val secondValue = 0
+    val result: Int = try { firstValue / secondValue } catch (exception: Exception) { 0 }
+    println("Result: $result")
+
 }
 
 fun variables() {
@@ -159,4 +174,18 @@ fun whileLoop() {
         val randomNumber = (0..100).random()
         println("The number generated is $randomNumber")
     } while (randomNumber > 50)
+}
+
+fun forLoop() {
+    val fruitList = listOf("Apple", "Pear", "Peach", "Raspberry")
+
+    for (fruit in fruitList) println("The fruit of the day is $fruit")
+
+    fruitList.forEach { fruit -> println("The fruit is $fruit") }
+
+    val fruitCharacters = fruitList.map { fruit -> fruit.length }
+    println(fruitCharacters)
+
+    val filteredList = fruitCharacters.filter { fruitLength -> fruitLength > 5 }
+    println(filteredList)
 }
