@@ -2,39 +2,28 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    // Immutable
-    val nameList = listOf("John", "Anna", "Bob")
-    println(nameList)
+    val lotteryNumbers = listOf(11,22,7,66,32,43)
 
-    // Mutable
-    val emptyList = mutableListOf<String>()
-    println(emptyList)
+    val sortedNumbers = lotteryNumbers.sorted()
+    println(sortedNumbers)
 
-    emptyList.add("First Element")
-    println(emptyList)
+    val descSortedNumbers = lotteryNumbers.sortedDescending()
+    println(descSortedNumbers)
 
-    val valueUsingGet = emptyList.get(0)
-    println(valueUsingGet)
+    val orderedByMultiples = lotteryNumbers.sortedBy { number -> number < 30 }
+    println(orderedByMultiples)
 
-    val valueUsingOperator = emptyList[0]
-    println(valueUsingOperator)
+    val randomNumbers = lotteryNumbers.shuffled()
+    println(randomNumbers)
 
-    //val firstValue = nameList.firstOrNull()
-    val firstValue = nameList.first()
-    println(firstValue)
+    val reverseNumbers = lotteryNumbers.reversed()
+    println(reverseNumbers)
 
-    emptyList.removeAt(0)
-    println(emptyList)
+    val messageNumbers = lotteryNumbers.map { number -> "Your lottery number is $number" }
+    println(messageNumbers)
 
-    emptyList.add("New Element")
-    println(emptyList)
-    emptyList.removeIf { element -> element.length > 5 }
-    println(emptyList)
-
-    // Arrays
-    val array = arrayOf(1,2,3,4)
-    println("Array $array")
-    println("Array as List ${array.asList()}")
+    val filteredNumbers = lotteryNumbers.filter { number -> number > 30 }
+    println(filteredNumbers)
 
 }
 
@@ -229,4 +218,40 @@ fun elvisOperator() {
     var name: String? = null
     val characters: Int = name?.length ?: 0
     println(characters)
+}
+
+fun lists() {
+    // Immutable
+    val nameList = listOf("John", "Anna", "Bob")
+    println(nameList)
+
+    // Mutable
+    val emptyList = mutableListOf<String>()
+    println(emptyList)
+
+    emptyList.add("First Element")
+    println(emptyList)
+
+    val valueUsingGet = emptyList.get(0)
+    println(valueUsingGet)
+
+    val valueUsingOperator = emptyList[0]
+    println(valueUsingOperator)
+
+    //val firstValue = nameList.firstOrNull()
+    val firstValue = nameList.first()
+    println(firstValue)
+
+    emptyList.removeAt(0)
+    println(emptyList)
+
+    emptyList.add("New Element")
+    println(emptyList)
+    emptyList.removeIf { element -> element.length > 5 }
+    println(emptyList)
+
+    // Arrays
+    val array = arrayOf(1,2,3,4)
+    println("Array $array")
+    println("Array as List ${array.asList()}")
 }
