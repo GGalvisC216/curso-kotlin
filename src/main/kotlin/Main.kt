@@ -2,15 +2,24 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    val resultSuperFunction = superFunction(initialValue = "Random Phrase", block = { it.length })
-    println(resultSuperFunction)
+    var name: String? = null
+    name?.let {
+        value -> println("The name is not null, It's $value")
+    }
 
-    val anotherWayToCallSuperFunction = superFunction(initialValue = "Hello") { it.length }
-    println(anotherWayToCallSuperFunction)
+    name = "Gustavo"
+    name?.let {
+        value -> println("The name is not null, It's $value")
+    }
 
-    val resultInceptionFunction: () -> String = inceptionFunction("returning Function")
-    val resultLambda: String = resultInceptionFunction()
-    println(resultLambda)
+    var lambda: (String) -> Unit = { value -> println("The name is not null, It's $value") }
+
+    var secondName: String? = null
+    secondName?.let(lambda)
+
+    secondName = "Carlos"
+    secondName?.let(lambda)
+
 }
 
 fun variables() {
@@ -396,4 +405,16 @@ fun superFunction(initialValue: String, block: (String) -> Int): Int {
 
 fun inceptionFunction(name: String): () -> String {
     return { "Hello from lambda $name" }
+}
+
+fun highOrderFunctions() {
+    val resultSuperFunction = superFunction(initialValue = "Random Phrase", block = { it.length })
+    println(resultSuperFunction)
+
+    val anotherWayToCallSuperFunction = superFunction(initialValue = "Hello") { it.length }
+    println(anotherWayToCallSuperFunction)
+
+    val resultInceptionFunction: () -> String = inceptionFunction("returning Function")
+    val resultLambda: String = resultInceptionFunction()
+    println(resultLambda)
 }
