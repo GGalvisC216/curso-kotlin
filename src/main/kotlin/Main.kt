@@ -2,7 +2,7 @@
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
-    scopeFunctionsRunAndApply()
+    scopeFunctionsRunApplyAndAlso()
 
 }
 
@@ -439,7 +439,7 @@ fun scopeFunctionsWith() {
     println(result)
 }
 
-fun scopeFunctionsRunAndApply() {
+fun scopeFunctionsRunApplyAndAlso() {
     val mobiles = mutableListOf("Motorola G3", "Google Pixel 4a", "Samsung Galaxy S22", "Xiaomi mi a3")
         .run {
             removeIf { mobile -> mobile.contains("Google") }
@@ -467,4 +467,11 @@ fun scopeFunctionsRunAndApply() {
         removeIf { color -> color == null || color.length > 3 }
     }
     println(colors2)
+
+    val mobiles2 = mutableListOf("Motorola G3", "Google Pixel 4a", "Samsung Galaxy S22", "Xiaomi mi a3").also {
+        list -> println("The Original Value of the list is $list")
+    }.asReversed()
+
+    println(mobiles2)
+
 }
